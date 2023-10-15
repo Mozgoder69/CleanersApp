@@ -1,6 +1,6 @@
 """ forms.py """
 from django import forms
-from .models import Account, Address, Branch, Catalyst, Category, Customer, CustomerEmail, CustomerPhone, Employee, Factor, HarmfulFactor, HelpfulFactor, Journey, Material, Message, Method, MethodChem, MethodMech, Order, Package, Pollution, Premises, Problem, Process, Product, Referral, Request, Scenario, ScenarioOffsite, ScenarioOnsite, Solution, Stage, Symbol, Texture, Workflow
+from general.core.models import Account, Address, Branch, Catalyst, Category, Customer, CustomerEmail, CustomerPhone, Employee, Factor, HarmfulFactor, HelpfulFactor, Journey, Material, Message, Method, MethodChem, MethodMech, Order, Package, Pollution, Premises, Problem, Process, Product, Referral, Request, Scenario, ScenarioOffsite, ScenarioOnsite, Solution, Stage, Symbol, Texture, Workflow
 
 # ['field1', 'field2', 'field3', 'field4', 'field5', 'field6', 'field7', 'field8']
 class AccountForm(forms.ModelForm):

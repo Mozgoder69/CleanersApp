@@ -1,7 +1,6 @@
 """ models.py """
 from django.db import models
 
-
 class Account(models.Model):
     """ Account """
     employee = models.OneToOneField('Employee', models.DO_NOTHING, primary_key=True)
@@ -10,6 +9,7 @@ class Account(models.Model):
 
     class Meta:
         """ Account Meta """
+        app_label = 'core'
         managed = False
         db_table = 'account'
         db_table_comment = 'employee private info'
@@ -26,6 +26,7 @@ class Address(models.Model):
 
     class Meta:
         """ Address Meta """
+        app_label = 'core'
         managed = False
         db_table = 'address'
 
@@ -40,6 +41,7 @@ class Branch(models.Model):
 
     class Meta:
         """ Branch Meta """
+        app_label = 'core'
         managed = False
         db_table = 'branch'
 
@@ -52,6 +54,7 @@ class Catalyst(models.Model):
 
     class Meta:
         """ Catalyst Meta """
+        app_label = 'core'
         managed = False
         db_table = 'catalyst'
         unique_together = (('stage', 'factor'),)
@@ -69,6 +72,7 @@ class Category(models.Model):
 
     class Meta:
         """ Category Meta """
+        app_label = 'core'
         managed = False
         db_table = 'category'
 
@@ -82,6 +86,7 @@ class Customer(models.Model):
 
     class Meta:
         """ Customer Meta """
+        app_label = 'core'
         managed = False
         db_table = 'customer'
         unique_together = (('first_name', 'last_name'),)
@@ -96,6 +101,7 @@ class CustomerEmail(models.Model):
 
     class Meta:
         """ CustomerEmail Meta """
+        app_label = 'core'
         managed = False
         db_table = 'customer_email'
 
@@ -109,6 +115,7 @@ class CustomerPhone(models.Model):
 
     class Meta:
         """ CustomerPhone Meta """
+        app_label = 'core'
         managed = False
         db_table = 'customer_phone'
 
@@ -124,6 +131,7 @@ class Employee(models.Model):
 
     class Meta:
         """ Employee Meta """
+        app_label = 'core'
         managed = False
         db_table = 'employee'
         db_table_comment = 'relation: customer - branch'
@@ -137,6 +145,7 @@ class Factor(models.Model):
 
     class Meta:
         """ Factor Meta """
+        app_label = 'core'
         managed = False
         db_table = 'factor'
 
@@ -149,6 +158,7 @@ class HarmfulFactor(models.Model):
 
     class Meta:
         """ HarmfulFactor Meta """
+        app_label = 'core'
         managed = False
         db_table = 'harmful_factor'
         unique_together = (('material', 'factor'),)
@@ -162,6 +172,7 @@ class HelpfulFactor(models.Model):
 
     class Meta:
         """ HelpfulFactor Meta """
+        app_label = 'core'
         managed = False
         db_table = 'helpful_factor'
         unique_together = (('pollution', 'factor'),)
@@ -176,6 +187,7 @@ class Journey(models.Model):
 
     class Meta:
         """ Journey Meta """
+        app_label = 'core'
         managed = False
         db_table = 'journey'
         unique_together = (('order', 'address'),)
@@ -191,6 +203,7 @@ class Material(models.Model):
 
     class Meta:
         """ Material Meta """
+        app_label = 'core'
         managed = False
         db_table = 'material'
 
@@ -205,6 +218,7 @@ class Message(models.Model):
 
     class Meta:
         """ Message Meta """
+        app_label = 'core'
         managed = False
         db_table = 'message'
 
@@ -220,6 +234,7 @@ class Method(models.Model):
 
     class Meta:
         """ Method Meta """
+        app_label = 'core'
         managed = False
         db_table = 'method'
 
@@ -231,6 +246,7 @@ class MethodChem(models.Model):
 
     class Meta:
         """ MethodChem Meta """
+        app_label = 'core'
         managed = False
         db_table = 'method_chem'
 
@@ -242,6 +258,7 @@ class MethodMech(models.Model):
 
     class Meta:
         """ MethodMech Meta """
+        app_label = 'core'
         managed = False
         db_table = 'method_mech'
 
@@ -255,6 +272,7 @@ class Order(models.Model):
 
     class Meta:
         """ Order Meta """
+        app_label = 'core'
         managed = False
         db_table = 'order'
         db_table_comment = 'relation (intgl): customer - process'
@@ -269,6 +287,7 @@ class Package(models.Model):
 
     class Meta:
         """ Package Meta """
+        app_label = 'core'
         managed = False
         db_table = 'package'
         unique_together = (('order', 'product'),)
@@ -284,6 +303,7 @@ class Pollution(models.Model):
 
     class Meta:
         """ Pollution Meta """
+        app_label = 'core'
         managed = False
         db_table = 'pollution'
 
@@ -299,6 +319,7 @@ class Premises(models.Model):
 
     class Meta:
         """ Premises Meta """
+        app_label = 'core'
         managed = False
         db_table = 'premises'
 
@@ -313,6 +334,7 @@ class Problem(models.Model):
 
     class Meta:
         """ Problem Meta """
+        app_label = 'core'
         managed = False
         db_table = 'problem'
         unique_together = (('product', 'pollution'),)
@@ -327,6 +349,7 @@ class Process(models.Model):
 
     class Meta:
         """ Process Meta """
+        app_label = 'core'
         managed = False
         db_table = 'process'
 
@@ -342,6 +365,7 @@ class Product(models.Model):
 
     class Meta:
         """ Product Meta """
+        app_label = 'core'
         managed = False
         db_table = 'product'
 
@@ -357,6 +381,7 @@ class Referral(models.Model):
 
     class Meta:
         """ Referral Meta """
+        app_label = 'core'
         managed = False
         db_table = 'referral'
         unique_together = (('product', 'symbol'),)
@@ -372,6 +397,7 @@ class Request(models.Model):
 
     class Meta:
         """ Request Meta """
+        app_label = 'core'
         managed = False
         db_table = 'request'
         db_table_comment = 'requests to manage ctg_items and reg_int data (non-deletable records with "is_active" status column)'
@@ -386,6 +412,7 @@ class Scenario(models.Model):
 
     class Meta:
         """ Scenario Meta """
+        app_label = 'core'
         managed = False
         db_table = 'scenario'
 
@@ -399,6 +426,7 @@ class ScenarioOffsite(models.Model):
 
     class Meta:
         """ ScenarioOffsite Meta """
+        app_label = 'core'
         managed = False
         db_table = 'scenario_offsite'
         unique_together = (('scenario', 'premises'),)
@@ -413,6 +441,7 @@ class ScenarioOnsite(models.Model):
 
     class Meta:
         """ ScenarioOnsite Meta """
+        app_label = 'core'
         managed = False
         db_table = 'scenario_onsite'
         unique_together = (('scenario', 'product'),)
@@ -426,6 +455,7 @@ class Solution(models.Model):
 
     class Meta:
         """ Solution Meta """
+        app_label = 'core'
         managed = False
         db_table = 'solution'
         unique_together = (('scenario', 'method'),)
@@ -443,6 +473,7 @@ class Stage(models.Model):
 
     class Meta:
         """ Stage Meta """
+        app_label = 'core'
         managed = False
         db_table = 'stage'
         unique_together = (('type', 'mode', 'name'),)
@@ -457,6 +488,7 @@ class Symbol(models.Model):
 
     class Meta:
         """ Symbol Meta """
+        app_label = 'core'
         managed = False
         db_table = 'symbol'
         unique_together = (('stage', 'specifics'),)
@@ -472,6 +504,7 @@ class Texture(models.Model):
 
     class Meta:
         """ Texture Meta """
+        app_label = 'core'
         managed = False
         db_table = 'texture'
         unique_together = (('product', 'material'),)
@@ -487,6 +520,7 @@ class Workflow(models.Model):
 
     class Meta:
         """ Workflow Meta """
+        app_label = 'core'
         managed = False
         db_table = 'workflow'
         db_table_comment = 'relation: process - employee'

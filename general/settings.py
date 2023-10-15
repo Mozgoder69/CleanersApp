@@ -15,10 +15,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-if 'CODESPACE_NAME' in os.environ:
-    codespace_name = os.getenv("CODESPACE_NAME")
-    codespace_domain = os.getenv("GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN")
-    CSRF_TRUSTED_ORIGINS = [f'https://{codespace_name}-8000.{codespace_domain}']
+# if 'CODESPACE_NAME' in os.environ:
+#     codespace_name = os.getenv("CODESPACE_NAME")
+#     codespace_domain = os.getenv("GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN")
+#     CSRF_TRUSTED_ORIGINS = [f'https://{codespace_name}-8000.{codespace_domain}']
 
 # Application definition
 
@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_browser_reload",
+    "general",
 ]
 
 MIDDLEWARE = [
@@ -50,7 +51,8 @@ ROOT_URLCONF = "general.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "general" / "templates"],
+        # "DIRS": [BASE_DIR / "general" / "templates"],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
