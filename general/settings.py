@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_browser_reload",
-    "general",
+    "general.core",
 ]
 
 MIDDLEWARE = [
@@ -77,19 +77,21 @@ DATABASES = {
         'PASSWORD': '1618',
         'HOST': 'localhost',  # Set to the address of your PostgreSQL server
         'PORT': '1618',       # Default PostgreSQL port, change if yours is different
-
-    },
-    'pi': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cleaners',
-        'USER': 'postgres',
-        'PASSWORD': '1618',
-        'HOST': 'localhost',  # Set to the address of your PostgreSQL server
-        'PORT': '1618',       # Default PostgreSQL port, change if yours is different
         'OPTIONS': {
             'options': '-c search_path=pi'
-        },
+        }
     }
+    # 'pi': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'cleaners',
+    #     'USER': 'postgres',
+    #     'PASSWORD': '1618',
+    #     'HOST': 'localhost',  # Set to the address of your PostgreSQL server
+    #     'PORT': '1618',       # Default PostgreSQL port, change if yours is different
+    #     'OPTIONS': {
+    #         'options': '-c search_path=pi'
+    #     },
+    # }
 }
 
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
