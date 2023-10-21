@@ -1,4 +1,17 @@
+<!-- home.html -->
 {% extends 'base.html' %}
+{% block content %}
+    <ul>
+    {% for service in services %}
+        <li>
+            <img src="{{ service.icon.url }}" alt="{{ service.name }} icon">
+            {{ service.name }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+
+{% comment %} {% extends 'base.html' %}
 
 {% block title %} Главная страница {% endblock %}
 
@@ -7,7 +20,7 @@
 <p>Main Page</p>
 {% endblock %} 
 
-<!-- 
+
 {% load django_browser_reload %}
 {% load static %}
 
@@ -33,5 +46,4 @@
     </div>
 </body>
 
-</html>
--->
+</html> {% endcomment %}
