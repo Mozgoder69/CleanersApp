@@ -1,6 +1,9 @@
+{% extends 'base.html' %}
 {% load widget_tweaks %}
 
-<div class="form-container">
+{% block content %}
+<div class="container mt-5">
+{% comment %} <div class="form-container"> {% endcomment %}
   <!-- general/core/templates/entity_form.html -->
   <form method="post" class="needs-validation centered-form" novalidate>
     {% csrf_token %}
@@ -19,7 +22,9 @@
       <button type="submit" class="btn btn-primary">Add Record</button>
     </div>
   </form>
+{% comment %} </div> {% endcomment %}
 </div>
+{% endblock %}
 
 <style>
   body, select, input, textarea {

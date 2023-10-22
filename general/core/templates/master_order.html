@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} Master Orders {% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Заказ для {{ order.product_name }}</h2>
+    
+    <!-- Прогресс-бар -->
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: {{ order.progress }}%;" aria-valuenow="{{ order.progress }}" aria-valuemin="0" aria-valuemax="100">{{ order.progress }}%</div>
+    </div>
+    
+    <!-- Список загрязнений -->
+    <h4 class="mt-4">Загрязнения:</h4>
+    <ul>
+        {% for pollution in order.pollutions.all %}
+        <li>
+            <input type="checkbox" id="pollution_{{ pollution.id }}" {% if pollution.cleaned %}checked{% endif %}>
+            <label for="pollution_{{ pollution.id }}">{{ pollution.name }}</label>
+        </li>
+        {% endfor %}
+    </ul>
+    
+    <!-- Материал и метод чистки -->
+    <h4 class="mt-4">Материал:</h4>
+    <p>{{ order.material }}</p>
+    
+    <h4>Метод чистки:</h4>
+    <p>{{ order.cleaning_method }}</p>
+</div>
+{% endblock %}

@@ -8,10 +8,14 @@ from general.core.tabviews  import AccountListView, AddressListView, BranchListV
 urlpatterns = [
     path("", core_views.index, name='home'),
     path('about', core_views.about, name='about'),
+    path('master_order', core_views.master_order, name='master_order'),
+    path('approve_category/', core_views.approve_category_view, name='approve_category'),
     # path('', include('general/urls')),
     path('admin/', admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
 
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
     path('add_account/',    AccountCreateView.as_view(),            name='add_account'),
     path('add_address/',    AddressCreateView.as_view(),            name='add_address'),

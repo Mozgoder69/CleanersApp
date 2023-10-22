@@ -3,6 +3,7 @@ from django.shortcuts import render
 # from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
+from general.core.director_forms import ApproveCategoryForm, ApproveMaterialDeletionForm
 from general.core.models import Account,     Address,     Branch,     Catalyst,     Category,     Customer,     CustomerEmail,      CustomerPhone,      Employee,     Factor,     HarmfulFactor,      HelpfulFactor,      Journey,      Material,     Message,      Method,     MethodChem,     MethodMech,     Order,      Package,      Pollution,      Premises,     Problem,      Process,      Product,      Referral,     Request,      Scenario,     ScenarioOffsite,      ScenarioOnsite,     Solution,     Stage,      Symbol,     Texture,      Workflow
 from general.core.forms  import AccountForm, AddressForm, BranchForm, CatalystForm, CategoryForm, CustomerForm, CustomerEmailForm,  CustomerPhoneForm,  EmployeeForm, FactorForm, HarmfulFactorForm,  HelpfulFactorForm,  JourneyForm,  MaterialForm, MessageForm,  MethodForm, MethodChemForm, MethodMechForm, OrderForm,  PackageForm,  PollutionForm,  PremisesForm, ProblemForm,  ProcessForm,  ProductForm,  ReferralForm, RequestForm,  ScenarioForm, ScenarioOffsiteForm,  ScenarioOnsiteForm, SolutionForm, StageForm,  SymbolForm, TextureForm,  WorkflowForm
 
@@ -13,6 +14,21 @@ def index(request):
 def about(request):
     """ about """
     return render(request, 'about.html')
+
+def master_order(request):
+    """ master_order """
+    return render(request, 'master_order.html')
+
+def approve_category_view(request):
+    if request.method == "POST":
+        form = ApproveCategoryForm(request.POST)
+        if form.is_valid():
+            # Действия по утверждению категории
+            ...
+    else:
+        form = ApproveCategoryForm()
+
+    return render(request, 'approve_category.html', {'form': form})
 
 class AccountCreateView(CreateView):
     """ AccountCreateView """
